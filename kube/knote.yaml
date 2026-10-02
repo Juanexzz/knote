@@ -26,10 +26,18 @@ spec:
     spec:
       containers:
         - name: knote
-          image: juanexzz/knote:1.0.0
+          image: juanexzz/knote:2.0.0
           ports:
             - containerPort: 8080
           env:
             - name: MONGO_URL
               value: mongodb://mongo:27017/dev
+            - name: MINIO_HOST
+              value: minio
+            - name: MINIO_ACCESS_KEY
+              value: mykey
+            - name: MINIO_SECRET_KEY
+              value: mysecret
+            - name: JAVA_OPTS
+              value: "-Xms64m -Xmx200m"
           imagePullPolicy: Always
